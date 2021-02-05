@@ -1,0 +1,84 @@
+{
+  "name": "@ionic-native/eeft-googlemaps",
+  "version": "5.27.0-beta-20200630",
+  "description": "Native plugin wrappers for Cordova and Ionic with TypeScript, ES6+, Promise and Observable support",
+  "homepage": "https://github.com/eeft-native/ionic-native-eeft-googlemaps/",
+  "author": "Masashi Katsumata, Ionic Team <hi@ionic.io> (https://ionic.io)",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "npm run prebuild; npm run build:esm",
+    "test": "jest && npm run lint",
+    "test:watch": "jest --watch",
+    "build:core": "tsc -p tsconfig.core.json",
+    "build:esm": "ts-node -P scripts/tsconfig.json scripts/tasks/build-esm",
+    "build:es5": "ts-node -P scripts/tsconfig.json scripts/tasks/build-es5",
+    "build:ngx": "ts-node -P scripts/tsconfig.json scripts/tasks/build-ngx",
+    "build": "npm run build:esm && npm run build:ngx && npm run build:es5",
+    "prebuild": "rimraf -rf dist",
+    "npmpub": "ts-node -P scripts/tsconfig.json scripts/tasks/publish",
+    "lint": "gulp lint",
+    "readmes": "gulp readmes",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "postchangelog": "git commit -am \"chore(): update changelog\"",
+    "shipit": "npm run dev && cp README.md  dist/@ionic-native/plugins/eeft-googlemaps && npm login && npm run npmpub && npm logout",
+    "dev": "npm run test && npm run build && cp package.json dist/@ionic-native/plugins/eeft-googlemaps"
+  },
+  "devDependencies": {
+    "@angular/common": "^7.2.12",
+    "@angular/compiler": "^7.2.12",
+    "@angular/compiler-cli": "^7.2.12",
+    "@angular/core": "^7.2.12",
+    "@types/cordova": "0.0.34",
+    "@types/fs-extra": "^5.0.5",
+    "@types/jest": "^24.0.11",
+    "@types/lodash": "^4.14.123",
+    "@types/node": "^10.14.4",
+    "@types/rimraf": "^2.0.2",
+    "@types/webpack": "^4.4.27",
+    "ajv": "^6.10.0",
+    "async-promise-queue": "^1.0.4",
+    "conventional-changelog-cli": "^2.0.12",
+    "cordova-js": "^5.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "dgeni": "^0.4.12",
+    "dgeni-packages": "^0.28.3",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-tslint": "^8.1.4",
+    "fs-extra": "^7.0.1",
+    "jest": "^24.7.1",
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5",
+    "natives": "^1.1.6",
+    "rimraf": "^2.6.3",
+    "rxjs": "^6.4.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.15.0",
+    "tslint-ionic-rules": "0.0.21",
+    "typedoc": "^0.17.6",
+    "typescript": "3.2.4",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "unminified-webpack-plugin": "^2.0.0",
+    "webpack": "^4.29.6",
+    "winston": "^3.2.1",
+    "zone.js": "^0.8.29"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeft-native/ionic-native-eeft-googlemaps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eeft-native/ionic-native-eeft-googlemaps/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@ionic-native/core": "^5.27.0",
+    "eeft-plugin-googlemaps": "^2.7.18"
+  }
+}
